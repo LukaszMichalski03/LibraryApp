@@ -1,0 +1,40 @@
+﻿<UserControl x:Class="LibraryApp.Views.AddBookView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LibraryApp.Views"
+             xmlns:helpers="clr-namespace:LibraryApp.Helpers"
+             mc:Ignorable="d" 
+             d:DesignHeight="750" d:DesignWidth="1200">
+    <StackPanel >
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
+            <StackPanel >
+                <TextBlock FontSize="25" FontWeight="DemiBold"  Text="Title" HorizontalAlignment="Center" Margin="0 30 0 10"/>
+                <TextBox FontSize="20" Text="{Binding Title}" Width="200" Margin="30 0 "/>
+            </StackPanel>
+            <StackPanel >
+                <TextBlock FontSize="25" FontWeight="DemiBold"   Text="Author" HorizontalAlignment="Center" Margin="0 30 0 10"/>
+                <TextBox FontSize="20" Text="{Binding Author}" Width="200" Margin="30 0 "/>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
+            <StackPanel >
+                <TextBlock FontSize="25" FontWeight="DemiBold"  Text="Category" HorizontalAlignment="Center" Margin="0 30 0 10"/>
+                <ComboBox FontSize="20" VerticalAlignment="Center" Margin="30 0 "  Width="200"
+                      SelectedItem="{Binding Category}"  ItemsSource="{helpers:EnumBindingSource helpers:CategoryEnum}"/>
+            </StackPanel>
+            <StackPanel >
+                <TextBlock FontSize="25" FontWeight="DemiBold"   Text="Author" HorizontalAlignment="Center" Margin="0 30 0 10"/>
+                <TextBox FontSize="20" Text="{Binding Quantity}" Width="200" Margin="30 0 " />
+            </StackPanel>
+
+
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 50 0 0" >
+            <Button Style="{StaticResource MainButtonTheme}" Command="{Binding Cancel}" Margin="10" Content="Cancel" Width="120" Height="35"/>
+            <Button Style="{StaticResource SubmitButtonTheme}" Command="{Binding AddBookCommand}" Margin="10" Content="Add" Width="120" Height="35"/>
+        </StackPanel>
+
+    </StackPanel>
+</UserControl>
