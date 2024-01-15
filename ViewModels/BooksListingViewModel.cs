@@ -1,4 +1,6 @@
-﻿using LibraryApp.Models;
+﻿using LibraryApp.Commands;
+using LibraryApp.Data;
+using LibraryApp.Models;
 using LibraryApp.Repositories;
 using LibraryApp.Stores;
 using System;
@@ -12,44 +14,54 @@ namespace LibraryApp.ViewModels
 {
     public class BooksListingViewModel : ViewModelBase
     {
-        public event Action BooksListChanged;
-        public BooksListingViewModel(BookRepository bookRepository)
+        
+        public BooksListingViewModel()
         {
-            BooksListChanged += OnBooksListChanged;
-            this._bookRepository = bookRepository;
+            BooksListingItemVMs = new ObservableCollection<BooksListingItemViewModel>();
+            this._bookRepository = new BookRepository(new DataContextFactory());
+            Initialize();
+            
+            
+            
         }
 
         
 
-        private List<BooksListingItemViewModel> _booksListingItemVMs;
+        
         private readonly BookRepository _bookRepository;
-
-        public List<BooksListingItemViewModel> BooksListingItemVMs
+        private ObservableCollection<BooksListingItemViewModel> _booksListingItemVMs;
+        public ObservableCollection<BooksListingItemViewModel> BooksListingItemVMs
         {
             get { return _booksListingItemVMs;}
             set
             {
-                if (_booksListingItemVMs != value)
+                if (BooksListingItemVMs != value)
                 {
                     _booksListingItemVMs = value;
-                    BooksListChanged?.Invoke();
+                    //BooksListChanged?.Invoke();
                     
                 }
             }
         }
         //SelectedBooksListingItemVMs ???
-        private void OnBooksListChanged()
+        
+        public async Task Initialize()
         {
-            Initialize();
-        }
-        private async Task Initialize()
-        {
-            _booksListingItemVMs.Clear();
-            _booksListingItemVMs = await _bookRepository.GetAllBooksGrouped();
+            BooksListingItemVMs.Clear();
+            var Result = await _bookRepository.GetAllBooksGrouped();
+
+            for (int i = 0; i < Result.Count; i++)
+            {
+                BooksListingItemVMs.Add(Result[i]);
+                BooksListingItemVMs[i].DeleteCommand = new FastDeleteCommand(Result[i].Id, this);
+
+
+                //itemVM.DeleteCommand = new FastDeleteCommand(itemVM.Id, this);
+            }
         }
         protected override void Dispose()
         {
-            BooksListChanged -= OnBooksListChanged;
+            
             base.Dispose();
         }
     }

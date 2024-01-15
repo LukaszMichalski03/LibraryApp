@@ -25,12 +25,14 @@ namespace LibraryApp.ViewModels
 
 
             NavigateToBookCommand = new NavigationCommand<HomeBooksViewModel>(_navigationStore, () => new HomeBooksViewModel(navigationStore));
-            NavigateToReaderCommand = new NavigationCommand<HomeReadersViewModel>(_navigationStore, () => new HomeReadersViewModel());
+            NavigateToReaderCommand = new NavigationCommand<HomeReadersViewModel>(_navigationStore, () => new HomeReadersViewModel(navigationStore));
+            
 
         }
 
         public ICommand NavigateToBookCommand { get; set; }
         public ICommand NavigateToReaderCommand { get; set; }
+        
 
         private void OnCurrentViewModelChanged()
         {

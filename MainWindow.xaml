@@ -17,9 +17,11 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
+                
             </Grid.ColumnDefinitions>
             <Button Style="{StaticResource MainButtonTheme}" Content="Books" Command="{Binding NavigateToBookCommand}"/>
-            <Button Style="{StaticResource MainButtonTheme}" Content="Readers" Grid.Column="1" Command="{Binding NavigateToReaderCommand}"/>
+            <Button Style="{StaticResource MainButtonTheme}" Content="Readers Cards" Grid.Column="1" Command="{Binding NavigateToReaderCommand}"/>
+           
         </Grid>
         <ContentControl Grid.Row="1" Content="{Binding CurrentViewModel}">
             <ContentControl.Resources>
@@ -31,6 +33,9 @@
                 </DataTemplate>
                 <DataTemplate DataType="{x:Type viewModel:AddBookViewModel}">
                     <view:AddBookView/>
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type viewModel:AddReaderViewModel}">
+                    <view:AddReaderView/>
                 </DataTemplate>
             </ContentControl.Resources>
         </ContentControl>

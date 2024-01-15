@@ -25,7 +25,7 @@
                       SelectedItem="{Binding Category}"  ItemsSource="{helpers:EnumBindingSource helpers:CategoryEnum}"/>
             </StackPanel>
             <StackPanel >
-                <TextBlock FontSize="25" FontWeight="DemiBold"   Text="Author" HorizontalAlignment="Center" Margin="0 30 0 10"/>
+                <TextBlock FontSize="25" FontWeight="DemiBold"   Text="Quantity" HorizontalAlignment="Center" Margin="0 30 0 10"/>
                 <TextBox FontSize="20" Text="{Binding Quantity}" Width="200" Margin="30 0 " />
             </StackPanel>
 

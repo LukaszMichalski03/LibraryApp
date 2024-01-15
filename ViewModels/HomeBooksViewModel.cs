@@ -22,9 +22,11 @@ namespace LibraryApp.ViewModels
             
             this._navigationStore = navigationStore;
             NavigateToAddBook = new NavigationCommand<AddBookViewModel>(navigationStore, () => new AddBookViewModel(navigationStore));
-            
+            BooksListingViewModel = new BooksListingViewModel();
         }
         
+        public BooksListingViewModel BooksListingViewModel { get; set; }
+
         public ICommand NavigateToAddBook { get; set; }
         
     }

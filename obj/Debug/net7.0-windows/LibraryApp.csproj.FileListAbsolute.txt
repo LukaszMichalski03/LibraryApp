@@ -91,3 +91,10 @@ C:\Users\Łukasz\Desktop\POProjektWSB\LibraryApp\obj\Debug\net7.0-windows\refint
 C:\Users\Łukasz\Desktop\POProjektWSB\LibraryApp\obj\Debug\net7.0-windows\LibraryApp.pdb
 C:\Users\Łukasz\Desktop\POProjektWSB\LibraryApp\obj\Debug\net7.0-windows\LibraryApp.genruntimeconfig.cache
 C:\Users\Łukasz\Desktop\POProjektWSB\LibraryApp\obj\Debug\net7.0-windows\ref\LibraryApp.dll
+C:\Users\Łukasz\Desktop\POProjektWSB\LibraryApp\obj\Debug\net7.0-windows\Components\BooksListing.g.cs
+C:\Users\Łukasz\Desktop\POProjektWSB\LibraryApp\obj\Debug\net7.0-windows\Components\BooksListing.baml
+C:\Users\Łukasz\Desktop\POProjektWSB\LibraryApp\obj\Debug\net7.0-windows\LibraryApp.sourcelink.json
+C:\Users\Łukasz\Desktop\POProjektWSB\LibraryApp\obj\Debug\net7.0-windows\Views\NewRentalView.g.cs
+C:\Users\Łukasz\Desktop\POProjektWSB\LibraryApp\obj\Debug\net7.0-windows\Views\NewRentalView.baml
+C:\Users\Łukasz\Desktop\POProjektWSB\LibraryApp\obj\Debug\net7.0-windows\Views\AddReaderView.g.cs
+C:\Users\Łukasz\Desktop\POProjektWSB\LibraryApp\obj\Debug\net7.0-windows\Views\AddReaderView.baml

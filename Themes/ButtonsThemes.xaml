@@ -23,7 +23,7 @@
         </Style.Setters>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="#3e6b78"/>
+                <Setter Property="Background" Value="#6b9ed1"/>
             </Trigger>
 
 
@@ -45,7 +45,7 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
-            <Setter Property="Background" Value="#e33327"/>
+            <Setter Property="Background" Value="White"/>
 
             <Setter Property="Foreground" Value="Black"/>
             <Setter Property="FontSize" Value="20"/>
@@ -53,7 +53,7 @@
         </Style.Setters>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="#e3544b"/>
+                <Setter Property="Background" Value="#d9dadb"/>
             </Trigger>
 
 
@@ -75,7 +75,7 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
-            <Setter Property="Background" Value="#3e6b78"/>
+            <Setter Property="Background" Value="#0986d6"/>
 
             <Setter Property="Foreground" Value="Black"/>
             <Setter Property="FontSize" Value="25"/>
@@ -84,7 +84,7 @@
         </Style.Setters>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="#4d8494"/>
+                <Setter Property="Background" Value="#4b9acc"/>
             </Trigger>
         </Style.Triggers>
     </Style>
