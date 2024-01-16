@@ -9,13 +9,13 @@ using System.Threading.Tasks;
 
 namespace LibraryApp.Commands
 {
-    public class FastDeleteCommand : CommandBase
+    public class FastDeleteBookCommand : CommandBase
     {
         private readonly int _id;
         private readonly BooksListingViewModel booksListingView;
         BookRepository _bookRepository;
 
-        public FastDeleteCommand(int id,BooksListingViewModel booksListingView)
+        public FastDeleteBookCommand(int id,BooksListingViewModel booksListingView)
         {
             this._id = id;
             this.booksListingView = booksListingView;

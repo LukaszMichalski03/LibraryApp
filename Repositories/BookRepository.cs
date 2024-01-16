@@ -63,6 +63,7 @@ namespace LibraryApp.Repositories
                     .GroupBy(b => new { b.Title, b.Author })
                     .Select(group => new
                     {
+
                         Book = group.FirstOrDefault(b => b.Available) ?? group.First(),
                         Quantity = group.Count(),
                         QAvailable = group.Count(b => b.Available)

@@ -37,6 +37,9 @@
                 <DataTemplate DataType="{x:Type viewModel:AddReaderViewModel}">
                     <view:AddReaderView/>
                 </DataTemplate>
+                <DataTemplate DataType="{x:Type viewModel:AddRentalViewModel}">
+                    <view:AddRentalView/>
+                </DataTemplate>
             </ContentControl.Resources>
         </ContentControl>
     </Grid>

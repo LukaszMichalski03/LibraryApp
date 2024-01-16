@@ -21,7 +21,7 @@ namespace LibraryApp.ViewModels
         public CategoryEnum Category { get; set; }
         public int Quantity{ get; set; }
         public int Available{ get; set; }
-        public FastDeleteCommand DeleteCommand { get; set; }
+        public FastDeleteBookCommand DeleteCommand { get; set; }
 
     }
 }

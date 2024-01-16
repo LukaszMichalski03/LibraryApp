@@ -14,7 +14,7 @@ namespace LibraryApp.ViewModels
 
         public AddReaderViewModel(NavigationStore navigationStore)
         {
-            Cancel = new NavigationCommand<HomeBooksViewModel>(navigationStore, () => new HomeBooksViewModel(navigationStore));
+            Cancel = new NavigationCommand<HomeReadersViewModel>(navigationStore, () => new HomeReadersViewModel(navigationStore));
             AddReaderCommand = new AddReaderCommand(this);
         }
 

@@ -53,7 +53,7 @@ namespace LibraryApp.ViewModels
             for (int i = 0; i < Result.Count; i++)
             {
                 BooksListingItemVMs.Add(Result[i]);
-                BooksListingItemVMs[i].DeleteCommand = new FastDeleteCommand(Result[i].Id, this);
+                BooksListingItemVMs[i].DeleteCommand = new FastDeleteBookCommand(Result[i].Id, this);
 
 
                 //itemVM.DeleteCommand = new FastDeleteCommand(itemVM.Id, this);
