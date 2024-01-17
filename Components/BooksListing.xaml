@@ -6,87 +6,90 @@
              xmlns:local="clr-namespace:LibraryApp.Components"
              mc:Ignorable="d" 
              d:DesignHeight="750" d:DesignWidth="1140">
-    <ListView ItemsSource="{Binding BooksListingItemVMs}">
-        <ListView.View>
-            <GridView>
+    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+        <ListView ItemsSource="{Binding BooksListingItemVMs}">
+            <ListView.View>
+                <GridView>
 
-                <GridViewColumn Header="Title" Width="300">
-                    <GridViewColumn.CellTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding Title}" Margin="20 0 0 0" FontSize="20" FontWeight="Bold" />
-                        </DataTemplate>
-                    </GridViewColumn.CellTemplate>
-                </GridViewColumn>
-                <GridViewColumn Header="Author" Width="300">
-                    <GridViewColumn.CellTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding Author}" Margin="20 0 0 0" FontSize="20" FontWeight="Bold" />
-                        </DataTemplate>
-                    </GridViewColumn.CellTemplate>
-                </GridViewColumn>
-                <GridViewColumn Header="Cetegory" Width="200">
-                    <GridViewColumn.CellTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding Category}" Margin="20 0 0 0" FontSize="20" FontWeight="Bold" />
-                        </DataTemplate>
-                    </GridViewColumn.CellTemplate>
-                </GridViewColumn>
-                <GridViewColumn Header="Copies" Width="70">
-                    <GridViewColumn.CellTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding Quantity}" Margin="20 0 0 0" FontSize="20" FontWeight="Bold" />
-                        </DataTemplate>
-                    </GridViewColumn.CellTemplate>
-                </GridViewColumn>
-                <GridViewColumn Header="Available" Width="70">
-                    <GridViewColumn.CellTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding Available}" Margin="20 0 0 0" FontSize="20" FontWeight="Bold" />
-                        </DataTemplate>
-                    </GridViewColumn.CellTemplate>
-                </GridViewColumn>
-                <GridViewColumn Header="" Width="100" >
-                    <GridViewColumn.CellTemplate>
-                        <DataTemplate>
-                            <Button Content="Delete" Command="{Binding DeleteCommand}" Margin="0" Height="23"  Style="{StaticResource DeleteButtonTheme}" Width="80" FontSize="15" />
-                        </DataTemplate>
-                    </GridViewColumn.CellTemplate>
-                </GridViewColumn>
-            </GridView>
-        </ListView.View>
-        <ListView.Resources>
+                    <GridViewColumn Header="Title" Width="300">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Title}" Margin="20 0 0 0" FontSize="20" FontWeight="Bold" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Author" Width="300">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Author}" Margin="20 0 0 0" FontSize="20" FontWeight="Bold" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Cetegory" Width="200">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Category}" Margin="20 0 0 0" FontSize="20" FontWeight="Bold" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Copies" Width="70">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Quantity}" Margin="20 0 0 0" FontSize="20" FontWeight="Bold" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Available" Width="70">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Available}" Margin="20 0 0 0" FontSize="20" FontWeight="Bold" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="" Width="100" >
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Delete" Command="{Binding DeleteCommand}" Margin="0" Height="23"  Style="{StaticResource DeleteButtonTheme}" Width="80" FontSize="15" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+            <ListView.Resources>
 
-            <Style TargetType="{x:Type GridViewColumnHeader}">
-                <Setter Property="Background" Value="#74beed"/>
-                <Setter Property="Height" Value="40"/>
-                <Style.Triggers>
+                <Style TargetType="{x:Type GridViewColumnHeader}">
+                    <Setter Property="Background" Value="#74beed"/>
+                    <Setter Property="Height" Value="40"/>
+                    <Style.Triggers>
 
 
-                </Style.Triggers>
+                    </Style.Triggers>
 
-            </Style>
+                </Style>
 
-            <Style TargetType="{x:Type ListViewItem}">
+                <Style TargetType="{x:Type ListViewItem}">
 
-                <Setter Property="Background" Value="#a3cae3"/>
-                <Setter Property="Foreground" Value="Black"/>
+                    <Setter Property="Background" Value="#a3cae3"/>
+                    <Setter Property="Foreground" Value="Black"/>
 
-                <Setter Property="HorizontalAlignment" Value="Stretch"/>
-                <Style.Triggers>
-                    
-                    <Trigger Property="IsMouseOver" Value="true">
+                    <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                    <Style.Triggers>
 
-                        <Setter Property="Background" Value="#90bad6"/>
+                        <Trigger Property="IsMouseOver" Value="true">
 
-                    </Trigger>
-                </Style.Triggers>
-            </Style>
+                            <Setter Property="Background" Value="#90bad6"/>
 
-            <Style TargetType="{x:Type ListView}">
-                <Setter Property="Background" Value="transparent"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
 
-                <Setter Property="BorderThickness" Value="0"/>
-            </Style>
-        </ListView.Resources>
-    </ListView>
+                <Style TargetType="{x:Type ListView}">
+                    <Setter Property="Background" Value="transparent"/>
+
+                    <Setter Property="BorderThickness" Value="0"/>
+                </Style>
+            </ListView.Resources>
+        </ListView>
+    </ScrollViewer>
+    
 </UserControl>

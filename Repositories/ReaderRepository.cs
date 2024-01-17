@@ -35,12 +35,44 @@ namespace LibraryApp.Repositories
         {
             using (DataContext context = _contextFactory.Create())
             {
-                var reader = context.Readers.FirstOrDefault(b => b.Id == id);
-                context.Readers.Remove(reader);
-                int changes = await context.SaveChangesAsync();
-                return changes > 0;
+                try
+                {
+                    var reader = await context.Readers.FindAsync(id);
+
+                    if (reader == null)
+                    {
+                        return false;
+                    }
+
+                    var userRentals = context.Rentals
+                    .Where(r => r.ReaderId == reader.Id)
+                    .Include(r => r.Books)         
+                    .ToList();
+
+                    foreach (var rental in userRentals)
+                    {
+                        foreach (var book in rental.Books)
+                        {
+                            book.Available = true;
+                        }
+                    }
+
+                    context.Rentals.RemoveRange(userRentals);
+
+                    context.Readers.Remove(reader);
+
+                    int result = await context.SaveChangesAsync();
+
+                    return result > 0;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error during user deletion: {ex.Message}");
+                    return false;
+                }
             }
         }
+
         public async Task<ObservableCollection<ReadersListingItemViewModel>> GetAllReaders()
         {
             using (DataContext context = _contextFactory.Create())

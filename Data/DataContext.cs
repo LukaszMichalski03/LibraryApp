@@ -23,9 +23,34 @@ namespace LibraryApp.Data
         {
             optionsBuilder.UseSqlite("Data Source=C:\\Users\\Łukasz\\Desktop\\POProjektWSB\\LibraryDBTest.db");
         }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Book>(eb =>
+            {
+                eb.HasMany(b => b.Rentals)
+                .WithMany(r => r.Books)
+                .UsingEntity<RentalItem>(
+                    w => w.HasOne(ri => ri.Rental)
+                    .WithMany()
+                    .HasForeignKey(ri => ri.RentalId),
+
+                    w => w.HasOne(ri => ri.Book)
+                    .WithMany()
+                    .HasForeignKey(ri => ri.BookId),
+
+                    ri =>
+                    {
+                        ri.HasKey(ri => ri.Id);
+                    }
+                    );
+            });
+            base.OnModelCreating(modelBuilder);
+        }
         public DbSet<Book> Books { get; set; }
         public DbSet<Reader> Readers { get; set; }       
         public DbSet<Rental> Rentals { get; set; }
+        public DbSet<RentalItem> RentalItems { get; set; }
+        
         
     }
 }

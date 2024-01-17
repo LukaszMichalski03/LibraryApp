@@ -19,6 +19,7 @@ namespace LibraryApp.ViewModels
             _selectedBooksStore = selectedBooksStore;
             BooksListingItemVMs = new ObservableCollection<BooksListingItemViewModel>();
             _bookRepository = new BookRepository(new DataContextFactory());
+            _searchText = string.Empty;
             Initialize();
                 
         }

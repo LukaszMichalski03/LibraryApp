@@ -16,6 +16,9 @@
     <Compile Update="Components\ReadersListing.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Components\RentalsListing.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\AddBookView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -31,6 +34,9 @@
     <Compile Update="Views\ReadersView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\RentalHistoryView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Components\BooksListing.xaml">
@@ -40,6 +46,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Components\ReadersListing.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Components\RentalsListing.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">
@@ -61,6 +70,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\ReadersView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\RentalHistoryView.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

@@ -14,6 +14,6 @@ namespace LibraryApp.Models
         public string TelNumber { get; set; }
 
 
-        public ICollection<Rental> Rentals { get; set; }
+        public List<Rental> Rentals { get; set; } = new List<Rental>();
     }
 }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace LibraryApp.ViewModels
 {
@@ -14,5 +15,6 @@ namespace LibraryApp.ViewModels
         public string LastName { get; set; }
         public string TelNumber { get; set; }
         public FastDeleteReaderCommand DeleteCommand { get; set; }
+        public ICommand RentalHistoryCommand { get; set; }
     }
 }

@@ -19,7 +19,7 @@ namespace LibraryApp.ViewModels
             _selectedBooksStore = new SelectedBooksStore();
             NavigateToAddReader = new NavigationCommand<AddReaderViewModel>(navigationStore, () => new AddReaderViewModel(navigationStore));
             NavigateToAddRental = new NavigationCommand<AddRentalViewModel>(navigationStore, () => new AddRentalViewModel(navigationStore, _selectedReaderStore, _selectedBooksStore));
-            ReadersListingViewModel = new ReadersListingViewModel(_selectedReaderStore);
+            ReadersListingViewModel = new ReadersListingViewModel(_selectedReaderStore, navigationStore);
         }
         public ReadersListingViewModel ReadersListingViewModel { get; set; }
         public ICommand NavigateToAddReader {  get; set; }

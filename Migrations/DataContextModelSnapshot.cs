@@ -17,21 +17,6 @@ namespace LibraryApp.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.15");
 
-            modelBuilder.Entity("BookRental", b =>
-                {
-                    b.Property<int>("BooksId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("RentalsId")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("BooksId", "RentalsId");
-
-                    b.HasIndex("RentalsId");
-
-                    b.ToTable("BookRental");
-                });
-
             modelBuilder.Entity("LibraryApp.Models.Book", b =>
                 {
                     b.Property<int>("Id")
@@ -86,9 +71,6 @@ namespace LibraryApp.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("BookId")
-                        .HasColumnType("INTEGER");
-
                     b.Property<int>("ReaderId")
                         .HasColumnType("INTEGER");
 
@@ -105,19 +87,25 @@ namespace LibraryApp.Migrations
                     b.ToTable("Rentals");
                 });
 
-            modelBuilder.Entity("BookRental", b =>
+            modelBuilder.Entity("LibraryApp.Models.RentalItem", b =>
                 {
-                    b.HasOne("LibraryApp.Models.Book", null)
-                        .WithMany()
-                        .HasForeignKey("BooksId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
 
-                    b.HasOne("LibraryApp.Models.Rental", null)
-                        .WithMany()
-                        .HasForeignKey("RentalsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Property<int>("BookId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("RentalId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BookId");
+
+                    b.HasIndex("RentalId");
+
+                    b.ToTable("RentalItems");
                 });
 
             modelBuilder.Entity("LibraryApp.Models.Rental", b =>
@@ -129,6 +117,25 @@ namespace LibraryApp.Migrations
                         .IsRequired();
 
                     b.Navigation("Reader");
+                });
+
+            modelBuilder.Entity("LibraryApp.Models.RentalItem", b =>
+                {
+                    b.HasOne("LibraryApp.Models.Book", "Book")
+                        .WithMany()
+                        .HasForeignKey("BookId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("LibraryApp.Models.Rental", "Rental")
+                        .WithMany()
+                        .HasForeignKey("RentalId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Book");
+
+                    b.Navigation("Rental");
                 });
 
             modelBuilder.Entity("LibraryApp.Models.Reader", b =>

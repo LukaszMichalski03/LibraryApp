@@ -1,0 +1,103 @@
+﻿<UserControl x:Class="LibraryApp.Components.RentalsListing"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LibraryApp.Components"
+             mc:Ignorable="d" 
+             d:DesignHeight="750" d:DesignWidth="1200">
+    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+        <ListView ItemsSource="{Binding RentalsListingItemVMs}" Width="auto" Margin="40">
+            <ListView.View>
+                <GridView>
+
+                    <GridViewColumn Header="Rentals" >
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <ListBox ItemsSource="{Binding Rental.Books}" Width="400" >
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal" >
+                                                <TextBlock Text="{Binding Id}" FontSize="20" FontWeight="Bold" Margin="10 0"/>
+                                                <TextBlock Text="{Binding Title}" FontSize="20" FontWeight="Bold" Margin="10 0"/>
+                                                <TextBlock Text="{Binding Author}" FontSize="16"/>
+                                                
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Rental Date" Width="200" >
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Rental.RentalDate, StringFormat=\{0:yyyy-MM-dd HH:mm:ss\}}" FontSize="16"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Return Date" Width="200" >
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock FontSize="16">
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock">
+                                            <Setter Property="Text" Value="{Binding Rental.ReturnDate, StringFormat=\{0:yyyy-MM-dd HH:mm:ss\}}" />
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding Rental.ReturnDate}" Value="{x:Null}">
+                                                    <Setter Property="Text" Value="" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="" Width="120" >
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Return" Command="{Binding ReturnRentalCommand}" Margin="0" Height="30"  Style="{StaticResource DeleteButtonTheme}" Width="100" FontSize="20" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+            <ListView.Resources>
+
+                <Style TargetType="{x:Type GridViewColumnHeader}">
+                    <Setter Property="Background" Value="#74beed"/>
+                    <Setter Property="Height" Value="40"/>
+                    <Style.Triggers>
+
+
+                    </Style.Triggers>
+
+                </Style>
+
+                <Style TargetType="{x:Type ListViewItem}">
+
+                    <Setter Property="Background" Value="#a3cae3"/>
+                    <Setter Property="Foreground" Value="Black"/>
+
+                    <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                    <Style.Triggers>
+
+                        <Trigger Property="IsMouseOver" Value="true">
+
+                            <Setter Property="Background" Value="#90bad6"/>
+
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+
+                <Style TargetType="{x:Type ListView}">
+                    <Setter Property="Background" Value="transparent"/>
+
+                    <Setter Property="BorderThickness" Value="0"/>
+                </Style>
+            </ListView.Resources>
+        </ListView>
+    </ScrollViewer>
+</UserControl>

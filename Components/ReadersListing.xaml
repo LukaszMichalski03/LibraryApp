@@ -6,76 +6,86 @@
              xmlns:local="clr-namespace:LibraryApp.Components"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <ListView ItemsSource="{Binding ReadersListingItemsVMs}"
-              SelectedItem="{Binding SelectedReaderListingItemViewModel, Mode=TwoWay}"
-                SelectionMode="Single">
-        <ListView.View>
-            <GridView>
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <ListView ItemsSource="{Binding ReadersListingItemsVMs}"
+          SelectedItem="{Binding SelectedReaderListingItemViewModel, Mode=TwoWay}"
+            SelectionMode="Single">
+            <ListView.View>
+                <GridView>
 
-                <GridViewColumn Header="First Name" Width="300">
-                    <GridViewColumn.CellTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding Name}" Margin="20 0 0 0" FontSize="20" FontWeight="Bold" />
-                        </DataTemplate>
-                    </GridViewColumn.CellTemplate>
-                </GridViewColumn>
-                <GridViewColumn Header="Last Name" Width="300">
-                    <GridViewColumn.CellTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding LastName}" Margin="20 0 0 0" FontSize="20" FontWeight="Bold" />
-                        </DataTemplate>
-                    </GridViewColumn.CellTemplate>
-                </GridViewColumn>
-                <GridViewColumn Header="Tel Number" Width="200">
-                    <GridViewColumn.CellTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding TelNumber}" Margin="20 0 0 0" FontSize="20" FontWeight="Bold" />
-                        </DataTemplate>
-                    </GridViewColumn.CellTemplate>
-                </GridViewColumn>
-                
-                <GridViewColumn Header="" Width="100" >
-                    <GridViewColumn.CellTemplate>
-                        <DataTemplate>
-                            <Button Content="Delete" Command="{Binding DeleteCommand}" Margin="0" Height="23"  Style="{StaticResource DeleteButtonTheme}" Width="80" FontSize="15" />
-                        </DataTemplate>
-                    </GridViewColumn.CellTemplate>
-                </GridViewColumn>
-            </GridView>
-        </ListView.View>
-        <ListView.Resources>
+                    <GridViewColumn Header="First Name" Width="300">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Name}" Margin="20 0 0 0" FontSize="20" FontWeight="Bold" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Last Name" Width="300">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding LastName}" Margin="20 0 0 0" FontSize="20" FontWeight="Bold" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Tel Number" Width="200">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding TelNumber}" Margin="20 0 0 0" FontSize="20" FontWeight="Bold" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
 
-            <Style TargetType="{x:Type GridViewColumnHeader}">
-                <Setter Property="Background" Value="#74beed"/>
-                <Setter Property="Height" Value="40"/>
-                <Style.Triggers>
+                    <GridViewColumn Header="" Width="100" >
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Delete" Command="{Binding DeleteCommand}" Margin="0" Height="23"  Style="{StaticResource DeleteButtonTheme}" Width="80" FontSize="15" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="" Width="100" >
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Rentals" Command="{Binding RentalHistoryCommand}" Margin="0" Height="23"  Style="{StaticResource MainButtonTheme}" Width="80" FontSize="15" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+            <ListView.Resources>
+
+                <Style TargetType="{x:Type GridViewColumnHeader}">
+                    <Setter Property="Background" Value="#74beed"/>
+                    <Setter Property="Height" Value="40"/>
+                    <Style.Triggers>
 
 
-                </Style.Triggers>
+                    </Style.Triggers>
 
-            </Style>
+                </Style>
 
-            <Style TargetType="{x:Type ListViewItem}">
+                <Style TargetType="{x:Type ListViewItem}">
 
-                <Setter Property="Background" Value="#a3cae3"/>
-                <Setter Property="Foreground" Value="Black"/>
+                    <Setter Property="Background" Value="#a3cae3"/>
+                    <Setter Property="Foreground" Value="Black"/>
 
-                <Setter Property="HorizontalAlignment" Value="Stretch"/>
-                <Style.Triggers>
+                    <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                    <Style.Triggers>
 
-                    <Trigger Property="IsMouseOver" Value="true">
+                        <Trigger Property="IsMouseOver" Value="true">
 
-                        <Setter Property="Background" Value="#90bad6"/>
+                            <Setter Property="Background" Value="#90bad6"/>
 
-                    </Trigger>
-                </Style.Triggers>
-            </Style>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
 
-            <Style TargetType="{x:Type ListView}">
-                <Setter Property="Background" Value="transparent"/>
+                <Style TargetType="{x:Type ListView}">
+                    <Setter Property="Background" Value="transparent"/>
 
-                <Setter Property="BorderThickness" Value="0"/>
-            </Style>
-        </ListView.Resources>
-    </ListView>
+                    <Setter Property="BorderThickness" Value="0"/>
+                </Style>
+            </ListView.Resources>
+        </ListView>
+    </ScrollViewer>
+    
 </UserControl>

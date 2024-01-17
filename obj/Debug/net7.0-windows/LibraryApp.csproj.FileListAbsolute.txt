@@ -102,3 +102,7 @@ C:\Users\Łukasz\Desktop\POProjektWSB\LibraryApp\obj\Debug\net7.0-windows\Views\
 C:\Users\Łukasz\Desktop\POProjektWSB\LibraryApp\obj\Debug\net7.0-windows\Views\AddRentalView.baml
 C:\Users\Łukasz\Desktop\POProjektWSB\LibraryApp\obj\Debug\net7.0-windows\Components\BooksSearch.g.cs
 C:\Users\Łukasz\Desktop\POProjektWSB\LibraryApp\obj\Debug\net7.0-windows\Components\BooksSearch.baml
+C:\Users\Łukasz\Desktop\POProjektWSB\LibraryApp\obj\Debug\net7.0-windows\Views\RentalHistoryView.g.cs
+C:\Users\Łukasz\Desktop\POProjektWSB\LibraryApp\obj\Debug\net7.0-windows\Views\RentalHistoryView.baml
+C:\Users\Łukasz\Desktop\POProjektWSB\LibraryApp\obj\Debug\net7.0-windows\Components\RentalsListing.g.cs
+C:\Users\Łukasz\Desktop\POProjektWSB\LibraryApp\obj\Debug\net7.0-windows\Components\RentalsListing.baml

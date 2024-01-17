@@ -6,39 +6,60 @@
              xmlns:local="clr-namespace:LibraryApp.Views" xmlns:components="clr-namespace:LibraryApp.Components"
              mc:Ignorable="d" 
              d:DesignHeight="750" d:DesignWidth="1200">
-    <StackPanel Margin="0 20"  >
-        <Grid >
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Button Style="{StaticResource MainButtonTheme}" Command="{Binding Cancel}" Margin="10" Content="Cancel" Width="120" Height="35"/>
-            <Button Style="{StaticResource SubmitButtonTheme}" Command="{Binding AddRental}" Margin="10" Content="Add" Width="120" Height="35" Grid.Column="1"/>
-        </Grid>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
-            <TextBlock FontSize="20" FontWeight="DemiBold"  Text="Selected Reader" HorizontalAlignment="Center" Margin="0 10 0 5"/>
-            <TextBlock FontSize="20" FontWeight="DemiBold" HorizontalAlignment="Center" Margin="0 10 0 5">
-                <Run Text="{Binding SelectedReader.Name}" />
-                <Run Text=": " />
-                <Run Text="{Binding SelectedReader.LastName}" />
-            </TextBlock>
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <StackPanel Margin="0 20"  >
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Style="{StaticResource MainButtonTheme}" Command="{Binding Cancel}" Margin="10" Content="Cancel" Width="120" Height="35"/>
+                <Button Style="{StaticResource SubmitButtonTheme}" Command="{Binding AddRental}" Margin="10" Content="Add" Width="120" Height="35" Grid.Column="1"/>
+            </Grid>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
+                <TextBlock FontSize="20" FontWeight="DemiBold" HorizontalAlignment="Center" Margin="0 10 0 5">
+                    <TextBlock.Style>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="Text" Value="Selected Reader: " />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding SelectedReader}" Value="{x:Null}">
+                                    <Setter Property="Text" Value="Select a Reader!" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+
+                <TextBlock FontSize="20" FontWeight="DemiBold" HorizontalAlignment="Center" Margin="0 10 0 5">
+            
+            <Run Text="{Binding SelectedReader.Name}" />
+            <Run Text=" " />
+            <Run Text="{Binding SelectedReader.LastName}" />
+                </TextBlock>
+            </StackPanel>
+
+            <TextBlock FontSize="20" FontWeight="DemiBold"  Text="Selected Books" HorizontalAlignment="Center" Margin="0 10 0 5"/>
+            <ListBox ItemsSource="{Binding SelectedBooks}" Margin="250 20">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock FontSize="20" FontWeight="DemiBold" HorizontalAlignment="Center">
+                                <Run Text="{Binding Title}" />
+                                <Run Text=": " />
+                                <Run Text="{Binding Author}" />
+                            </TextBlock>
+                           
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <Button HorizontalAlignment="Left" Command="{Binding ClearCommand}" Content="Clear" Style="{StaticResource DeleteButtonTheme}" Width="60" FontSize="16" Margin="250 0 0 0"/>
+
+
+            <components:BooksSearch DataContext="{Binding BooksSearchViewModel}" Margin="50 0"/>
+
+
         </StackPanel>
-        
-        <TextBlock FontSize="20" FontWeight="DemiBold"  Text="Selected Books" HorizontalAlignment="Center" Margin="0 10 0 5"/>
-        <ListBox ItemsSource="{Binding SelectedBooks}" Margin="250 20"  >
-            <ListBox.ItemTemplate >
-                <DataTemplate>
-                    <TextBlock FontSize="20" FontWeight="DemiBold" HorizontalAlignment="Center">
-                        <Run Text="{Binding Title}" />
-                        <Run Text=": " />
-                        <Run Text="{Binding Author}" />
-                    </TextBlock>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-        
-        <components:BooksSearch DataContext="{Binding BooksSearchViewModel}"/>
-
-
-    </StackPanel>
+    </ScrollViewer>
+    
 </UserControl>

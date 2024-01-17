@@ -40,6 +40,9 @@
                 <DataTemplate DataType="{x:Type viewModel:AddRentalViewModel}">
                     <view:AddRentalView/>
                 </DataTemplate>
+                <DataTemplate DataType="{x:Type viewModel:RentalHistoryViewModel}">
+                    <view:RentalHistoryView/>
+                </DataTemplate>
             </ContentControl.Resources>
         </ContentControl>
     </Grid>

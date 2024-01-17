@@ -8,14 +8,13 @@ namespace LibraryApp.Models
 {
     public class Rental
     {
-        public int Id { get; set; }
-        public int BookId { get; set; }
+        public int Id { get; set; }        
         public int ReaderId { get; set; }
         public DateTime RentalDate { get; set; }
         public DateTime? ReturnDate { get; set; }
 
 
-        public ICollection<Book> Books { get; set; }
+        public ICollection<Book> Books { get; set; } = new List<Book>();
         public Reader Reader { get; set; }
     }
 }

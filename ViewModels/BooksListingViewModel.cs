@@ -38,12 +38,10 @@ namespace LibraryApp.ViewModels
                 if (BooksListingItemVMs != value)
                 {
                     _booksListingItemVMs = value;
-                    //BooksListChanged?.Invoke();
                     
                 }
             }
         }
-        //SelectedBooksListingItemVMs ???
         
         public async Task Initialize()
         {
@@ -55,8 +53,6 @@ namespace LibraryApp.ViewModels
                 BooksListingItemVMs.Add(Result[i]);
                 BooksListingItemVMs[i].DeleteCommand = new FastDeleteBookCommand(Result[i].Id, this);
 
-
-                //itemVM.DeleteCommand = new FastDeleteCommand(itemVM.Id, this);
             }
         }
         protected override void Dispose()

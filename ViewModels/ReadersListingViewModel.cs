@@ -15,11 +15,12 @@ namespace LibraryApp.ViewModels
 {
     public class ReadersListingViewModel : ViewModelBase
     {
-        public ReadersListingViewModel(SelectedReaderStore selectedReaderStore)
+        public ReadersListingViewModel(SelectedReaderStore selectedReaderStore, NavigationStore navigationStore)
         {
             ReadersListingItemsVMs = new ObservableCollection<ReadersListingItemViewModel>();
             this._readerRepository = new ReaderRepository(new DataContextFactory());
             _selectedReaderStore = selectedReaderStore;
+            this._navigationStore = navigationStore;
             SelectedReaderListingItemViewModel = null;
             Initialize();
         }
@@ -29,6 +30,7 @@ namespace LibraryApp.ViewModels
 
         private readonly ReaderRepository _readerRepository;
         private readonly SelectedReaderStore _selectedReaderStore;
+        private readonly NavigationStore _navigationStore;
         private ObservableCollection<ReadersListingItemViewModel> _readersListingItemVMs;
         public ObservableCollection<ReadersListingItemViewModel> ReadersListingItemsVMs
         {
@@ -72,14 +74,20 @@ namespace LibraryApp.ViewModels
         {
             ReadersListingItemsVMs.Clear();
             var Result = await _readerRepository.GetAllReaders();
-
-            for (int i = 0; i < Result.Count; i++)
+            if(Result != null)
             {
-                ReadersListingItemsVMs.Add(Result[i]);
-                ReadersListingItemsVMs[i].DeleteCommand = new FastDeleteReaderCommand(Result[i].Id, this);
-                SelectedReaderListingItemViewModel = null;
+                for (int i = 0; i < Result.Count; i++)
+                {
+                    ReadersListingItemsVMs.Add(Result[i]);
+                    ReadersListingItemsVMs[i].DeleteCommand = new FastDeleteReaderCommand(Result[i].Id, this);
+                    ReadersListingItemViewModel reader = Result[i];
+                    ReadersListingItemsVMs[i].RentalHistoryCommand = new NavigationCommand<RentalHistoryViewModel>(_navigationStore, () => new RentalHistoryViewModel(reader));
+                    
 
+                }
+                SelectedReaderListingItemViewModel = null;
             }
+            
         }
         protected override void Dispose()
         {

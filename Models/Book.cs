@@ -14,6 +14,6 @@ namespace LibraryApp.Models
         public string Author { get; set; }
         public bool Available { get; set; }
         public CategoryEnum Category { get; set; }
-        public ICollection<Rental> Rentals { get; set; }
+        public List<Rental> Rentals { get; set; } = new List<Rental>();
     }
 }
