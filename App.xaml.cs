@@ -42,25 +42,7 @@ namespace LibraryApp
                 DataContext = new MainViewModel(navigationStore)
             };
             MainWindow.Show();
-            //using (var scope = _host.Services.CreateScope())
-            //{
-            //    var serviceProvider = scope.ServiceProvider;
-
-            //    var contextFactory = serviceProvider.GetRequiredService<DataContextFactory>();
-                //using (DataContext context = contextFactory.Create())
-                //{
-                //    if (context.Database.GetPendingMigrations().Any())
-                //    {
-                //        context.Database.Migrate();
-                //    }
-                //}
-
-                //var navigationStore = serviceProvider.GetRequiredService<NavigationStore>();
-                //navigationStore.CurrentViewModel = serviceProvider.GetRequiredService<HomeBooksViewModel>();
-
-                //var mainWindow = serviceProvider.GetRequiredService<MainWindow>();
-                //mainWindow.Show();
-            //}
+            
 
             base.OnStartup(e);
         }

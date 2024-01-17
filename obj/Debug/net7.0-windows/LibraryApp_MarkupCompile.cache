@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET7_0;NETCOREAPP
 C:\Users\Łukasz\Desktop\POProjektWSB\LibraryApp\App.xaml
-101972112847
+10-129010492
 
-482105144378
+531857527110
 2341001988548
-Components\BooksListing.xaml;Components\ReadersListing.xaml;MainWindow.xaml;Themes\ButtonsThemes.xaml;Views\AddBookView.xaml;Views\AddReaderView.xaml;Views\AddRentalView.xaml;Views\BooksView.xaml;Views\NewRentalView.xaml;Views\ReadersView.xaml;
+Components\BooksListing.xaml;Components\BooksSearch.xaml;Components\ReadersListing.xaml;MainWindow.xaml;Themes\ButtonsThemes.xaml;Views\AddBookView.xaml;Views\AddReaderView.xaml;Views\AddRentalView.xaml;Views\BooksView.xaml;Views\ReadersView.xaml;
 
 False
 

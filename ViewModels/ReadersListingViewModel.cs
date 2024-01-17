@@ -15,11 +15,11 @@ namespace LibraryApp.ViewModels
 {
     public class ReadersListingViewModel : ViewModelBase
     {
-        public ReadersListingViewModel()
+        public ReadersListingViewModel(SelectedReaderStore selectedReaderStore)
         {
             ReadersListingItemsVMs = new ObservableCollection<ReadersListingItemViewModel>();
             this._readerRepository = new ReaderRepository(new DataContextFactory());
-            _selectedReaderStore = new SelectedReaderStore();
+            _selectedReaderStore = selectedReaderStore;
             SelectedReaderListingItemViewModel = null;
             Initialize();
         }

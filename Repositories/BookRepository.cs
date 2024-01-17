@@ -1,4 +1,5 @@
-﻿using LibraryApp.Data;
+﻿using LibraryApp.Commands;
+using LibraryApp.Data;
 using LibraryApp.Helpers;
 using LibraryApp.Interfaces;
 using LibraryApp.Models;
@@ -88,6 +89,38 @@ namespace LibraryApp.Repositories
                 return observableCollection;
             }
         }
+
+        public async Task<ObservableCollection<BooksListingItemViewModel>> GetBooksByTitleOrAuthor(string? text)
+        {
+            ObservableCollection<BooksListingItemViewModel> observableCollection = new ObservableCollection<BooksListingItemViewModel>();
+
+            using (DataContext context = _contextFactory.Create())
+            {
+                if(text != null)
+                {
+                    var lowerText = text.ToLower(); // Zamiana na małe litery
+
+                    var books = await context.Books
+                        .Where(b => (b.Author.ToLower().Contains(lowerText) || b.Title.ToLower().Contains(lowerText)) && b.Available == true)
+                        .ToListAsync();
+
+                    foreach (var book in books)
+                    {
+                        observableCollection.Add(new BooksListingItemViewModel
+                        {
+                            Id = book.Id,
+                            Title = book.Title,
+                            Author = book.Author,
+                            Category = book.Category,
+                        });
+                    }
+                }
+                
+            }
+
+            return observableCollection;
+        }
+
 
     }
 }

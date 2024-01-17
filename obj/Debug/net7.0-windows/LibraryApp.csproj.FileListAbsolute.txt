@@ -94,11 +94,11 @@ C:\Users\Łukasz\Desktop\POProjektWSB\LibraryApp\obj\Debug\net7.0-windows\ref\Li
 C:\Users\Łukasz\Desktop\POProjektWSB\LibraryApp\obj\Debug\net7.0-windows\Components\BooksListing.g.cs
 C:\Users\Łukasz\Desktop\POProjektWSB\LibraryApp\obj\Debug\net7.0-windows\Components\BooksListing.baml
 C:\Users\Łukasz\Desktop\POProjektWSB\LibraryApp\obj\Debug\net7.0-windows\LibraryApp.sourcelink.json
-C:\Users\Łukasz\Desktop\POProjektWSB\LibraryApp\obj\Debug\net7.0-windows\Views\NewRentalView.g.cs
-C:\Users\Łukasz\Desktop\POProjektWSB\LibraryApp\obj\Debug\net7.0-windows\Views\NewRentalView.baml
 C:\Users\Łukasz\Desktop\POProjektWSB\LibraryApp\obj\Debug\net7.0-windows\Views\AddReaderView.g.cs
 C:\Users\Łukasz\Desktop\POProjektWSB\LibraryApp\obj\Debug\net7.0-windows\Views\AddReaderView.baml
 C:\Users\Łukasz\Desktop\POProjektWSB\LibraryApp\obj\Debug\net7.0-windows\Components\ReadersListing.g.cs
 C:\Users\Łukasz\Desktop\POProjektWSB\LibraryApp\obj\Debug\net7.0-windows\Components\ReadersListing.baml
 C:\Users\Łukasz\Desktop\POProjektWSB\LibraryApp\obj\Debug\net7.0-windows\Views\AddRentalView.g.cs
 C:\Users\Łukasz\Desktop\POProjektWSB\LibraryApp\obj\Debug\net7.0-windows\Views\AddRentalView.baml
+C:\Users\Łukasz\Desktop\POProjektWSB\LibraryApp\obj\Debug\net7.0-windows\Components\BooksSearch.g.cs
+C:\Users\Łukasz\Desktop\POProjektWSB\LibraryApp\obj\Debug\net7.0-windows\Components\BooksSearch.baml

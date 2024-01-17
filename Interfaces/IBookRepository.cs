@@ -14,6 +14,7 @@ namespace LibraryApp.Interfaces
         Task<bool> AddBooks(AddBookViewModel addBookVM);
         Task<bool> DeleteBook(int id);
         Task<ObservableCollection<BooksListingItemViewModel>> GetAllBooksGrouped();        
+        Task<ObservableCollection<BooksListingItemViewModel>> GetBooksByTitleOrAuthor(string text);        
 
     }
 }
